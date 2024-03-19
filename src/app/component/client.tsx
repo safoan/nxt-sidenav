@@ -1,11 +1,11 @@
 import React from 'react'
 
-const client = () => {
+const Client : React.FC = () => {
   return (
-    <div>
+    <div className= "Clinet">
       <h1>this the client page</h1>
     </div>
   )
 }
 
-export default client
+export default Client

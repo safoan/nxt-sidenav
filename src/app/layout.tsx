@@ -6,14 +6,15 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  return (
-    <div className="flex h-screen">
-      <main className="flex-grow bg-gray-100 p-4">
-        <Sidenav /> {/* Use PascalCase for components */}
-        {children}
-      </main>
-    </div>
-  );
-};
-
-export default Layout;
+  
+    return (
+      <div className="flex h-screen">
+        <Sidenav />
+        <main className="flex-grow bg-gray-100 p-4">
+          {children}
+        </main>
+      </div>
+    );
+  };
+  
+  export default Layout;

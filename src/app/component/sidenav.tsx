@@ -1,7 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React from 'react';
-import Link from 'next/link';
-import { usePathname , useRouter} from 'next/navigation'
+import React from "react";
+import Link from "next/link";
 
 
 interface NavigationItem {
@@ -10,31 +8,20 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { name: 'Dashboard', href: '/' }, // Use root path for dashboard
   { name: 'Client', href: '/client' },
-  { name: 'Product', href: '/product' },
-  { name: 'Invoice', href: '/invoice' },
-  { name: 'User', href: '/user' },
+  { name: 'Dashboard', href: '/dashboard' },
+  //{ name: 'Invoice', href: '/invoice' },
   // ... other items
 ];
-
-const isActive = (href: string) => {
-  const router = useRouter();
-  return router.pathname === href;
-};
 
 const Sidenav: React.FC = () => {
   return (
     <nav className="flex flex-col space-y-2 bg-gray-800 text-white p-4">
       {navigationItems.map((item) => (
         <Link key={item.name} href={item.href}>
-          <a
-            className={`px-4 py-2 rounded hover:bg-gray-700 ${
-              isActive(item.href) ? 'bg-blue-500 text-white' : ''
-            }`}
-          >
+          <div className="px-4 py-2 rounded hover:bg-gray-700">
             {item.name}
-          </a>
+          </div>
         </Link>
       ))}
     </nav>
@@ -42,3 +29,42 @@ const Sidenav: React.FC = () => {
 };
 
 export default Sidenav;
+
+
+
+/*const  sidenav = () => {
+  return (
+    <>
+      <div className="flex flex-col space-y-2 bg-gray-800 text-white p-4">
+        <div className="container mx-auto px-4 h-full">
+          <div className="flex justify-between items-center h-full">
+            <ul className="hidden md:flex gap-x-6 text-white">
+              <li>
+                <Link href="/">
+                  <p>Dashboard</p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/client">
+                  <p>Client</p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/Product">
+                  <p>Product</p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/invoice">
+                  <p>Invoice</p>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default sidenav;*/
